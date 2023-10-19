@@ -2,36 +2,49 @@ package G05_CENG211_HW1;
 
 public class SalaryManagement {
     private ShopAssistant[] shopAssistants;
+    private int itemCount;
+    private int capacity;
 
     public SalaryManagement(ShopAssistant[] shopAssistants) {
         this.shopAssistants = shopAssistants;
     }
 
+	public int getCapacity() {
+		return capacity;
+	}
+	
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
 
+    public ShopAssistant getById(int id){
 
-    public ShopAssistant[] getShopAssistants() {
-        return shopAssistants;
+        return shopAssistants[id];
     }
-
-    public void setShopAssistants(ShopAssistant[] shopAssistants) {
-        this.shopAssistants = shopAssistants;
+    
+    public boolean isFull() {
+        return itemCount == capacity;
     }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("SalaryManagement{");
-        sb.append("shopAssistants=[");
-        for (int i = 0; i < shopAssistants.length; i++) {
-            sb.append(shopAssistants[i]);
-            if (i < shopAssistants.length - 1) {
-                sb.append(", ");
-            }
+    
+    public boolean isEmpty() {
+        return itemCount == 0;
+    }
+    
+    public boolean add(ShopAssistant newItem) {
+        if (newItem == null || isFull()) {
+            return false;
         }
-        sb.append("]");
-        sb.append("}");
-        return sb.toString();
+
+        shopAssistants[itemCount] = newItem;
+        itemCount++;
+
+        return true;
+    }
+
+    public void displayItems() {
+        for (ShopAssistant assistant : shopAssistants) {
+            System.out.println(assistant.toString()); // Assuming ShopAssistant has a proper toString method
+        }
     }
 
 

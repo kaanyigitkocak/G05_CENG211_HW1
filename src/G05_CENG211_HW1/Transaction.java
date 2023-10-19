@@ -79,6 +79,4 @@ public class Transaction {
         sb.append("}");
         return sb.toString();
     }
-
-    // You can add other methods and functionality as needed.
 }
