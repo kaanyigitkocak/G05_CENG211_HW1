@@ -6,18 +6,10 @@ public class Transaction {
     private double totalPrice;
     private double transactionFee;
 
-    public Transaction(int id, Product[] products, double transactionFee) {
+    public Transaction(int id, Product[] products) {
         this.id = id;
-        if (products.length == 3) {
-            this.products = products;
-        } else {
-            throw new IllegalArgumentException("A transaction must include an array of 3 products.");
-        }
-        this.totalPrice = calculateTotalPrice();
-        this.transactionFee = transactionFee;
+        setProducts(products);
     }
-
-    // Getter and Setter methods for the attributes
 
     public int getId() {
         return id;
@@ -34,10 +26,11 @@ public class Transaction {
     public void setProducts(Product[] products) {
         if (products.length == 3) {
             this.products = products;
+            this.totalPrice = calculateTotalPrice();
+            this.calculateTransactionFee();
         } else {
             throw new IllegalArgumentException("A transaction must include an array of 3 products.");
         }
-        this.totalPrice = calculateTotalPrice();
     }
 
     public double getTotalPrice() {
@@ -48,10 +41,6 @@ public class Transaction {
         return transactionFee;
     }
 
-    public void setTransactionFee(double transactionFee) {
-        this.transactionFee = transactionFee;
-    }
-
     private double calculateTotalPrice() {
         double total = 0;
         for (Product product : products) {
@@ -60,8 +49,20 @@ public class Transaction {
         return total;
     }
 
+    private void calculateTransactionFee() {
+        if (totalPrice <= 499) {
+            transactionFee = 0.01 * totalPrice; 
+        } else if (totalPrice >= 500 && totalPrice <= 799) {
+            transactionFee = 0.03 * totalPrice; 
+        } else if (totalPrice >= 800 && totalPrice <= 999) {
+            transactionFee = 0.05 * totalPrice; 
+        } else {
+            transactionFee = 0.09 * totalPrice; 
+        }
+    }
+    
     @Override
-    public String toString() {
+    public String toString() { 
         StringBuilder sb = new StringBuilder();
         sb.append("Transaction{");
         sb.append("id=").append(id).append(", ");
@@ -78,5 +79,6 @@ public class Transaction {
         sb.append("}");
         return sb.toString();
     }
+
     // You can add other methods and functionality as needed.
 }
