@@ -3,12 +3,18 @@ package G05_CENG211_HW1;
 public class Transaction {
     private int id;
     private Product[] products;
+    private int itemCount;
+    private int capacity;
     private double totalPrice;
     private double transactionFee;
 
-    public Transaction(int id, Product[] products) {
+    public Transaction(int id, int capacity, Product[] products) {
         this.id = id;
-        setProducts(products);
+        this.capacity = capacity;
+        this.products = new Product[capacity];
+        addProductsByList(products);
+        totalPrice = calculateTotalPrice();
+        calculateTransactionFee();
     }
 
     public int getId() {
@@ -19,19 +25,49 @@ public class Transaction {
         this.id = id;
     }
 
-    public Product[] getProducts() {
-        return products;
+
+    public Product getProductById(int id){
+
+        return products[id];
+    }
+    
+    public boolean isFull() {
+        return itemCount == capacity;
+    }
+    
+    public boolean isEmpty() {
+        return itemCount == 0;
+    }
+    
+    public boolean addProduct(Product newItem) {
+        if (newItem == null || isFull()) {
+            return false;
+        }
+        products[itemCount] = newItem;
+        itemCount++;
+
+        return true;
+    }
+    
+    public boolean addProductsByList(Product[] products) {
+        for (int i = 0; i < capacity; i++) {
+        	
+        	if (products[i]== null) {
+        		return false;
+        	}
+        	
+        	this.products[i] = products[i];
+        }
+        
+        return true;
     }
 
-    public void setProducts(Product[] products) {
-        if (products.length == 3) {
-            this.products = products;
-            this.totalPrice = calculateTotalPrice();
-            this.calculateTransactionFee();
-        } else {
-            throw new IllegalArgumentException("A transaction must include an array of 3 products.");
+    public void displayItems() {
+        for (Product product : products) {
+            System.out.println(product.toString()); 
         }
     }
+
 
     public double getTotalPrice() {
         return totalPrice;

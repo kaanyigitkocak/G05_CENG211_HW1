@@ -17,7 +17,7 @@ public class SalaryManagement {
 		this.capacity = capacity;
 	}
 
-    public ShopAssistant getById(int id){
+    public ShopAssistant getShopAssistantById(int id){
 
         return shopAssistants[id];
     }
@@ -30,7 +30,7 @@ public class SalaryManagement {
         return itemCount == 0;
     }
     
-    public boolean add(ShopAssistant newItem) {
+    public boolean addShopAssistant(ShopAssistant newItem) {
         if (newItem == null || isFull()) {
             return false;
         }
@@ -41,7 +41,7 @@ public class SalaryManagement {
         return true;
     }
 
-    public void displayItems() {
+    public void displayShopAssistantItems() {
         for (ShopAssistant assistant : shopAssistants) {
             System.out.println(assistant.toString()); // Assuming ShopAssistant has a proper toString method
         }

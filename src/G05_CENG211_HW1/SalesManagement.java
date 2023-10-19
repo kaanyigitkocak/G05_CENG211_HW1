@@ -14,7 +14,9 @@ public class SalesManagement {
 		Product[] products = {product1, product2, product3};
 
 		// Create a new Transaction
-		Transaction newTransaction = new Transaction(1, products);
+		Transaction newTransaction = new Transaction(1, 3,products);
+		
+
 
 		// Display the new Transaction
 		System.out.println("New Transaction:");
