@@ -1,9 +1,12 @@
 package G05_CENG211_HW1;
 
+import java.util.Random;
+
 public class Product {
     private int id;
     private String productName;
     private double price;
+    private int quantity;
 
     public Product(int id, String productName, double price) {
         this.id = id;
@@ -34,4 +37,13 @@ public class Product {
                 '}';
     }
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+	private void setQuantityRandom() {
+	    Random rand = new Random();
+	    int randomQuantity = rand.nextInt(10) + 1;
+	    this.quantity = randomQuantity;
+	}
 }
