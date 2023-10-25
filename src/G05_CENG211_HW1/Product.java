@@ -12,6 +12,7 @@ public class Product {
         this.id = id;
         this.productName = productName;
         this.price = price;
+        setQuantityRandom();
     }
     
     public int getId() {

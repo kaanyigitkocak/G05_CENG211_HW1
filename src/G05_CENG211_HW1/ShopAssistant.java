@@ -15,12 +15,13 @@ public class ShopAssistant {
     private double totalSalary; 
     private int commission;
 
-    public ShopAssistant(int id, String name, String surname, String phoneNumber) {
+    public ShopAssistant(int id, String name, String surname, String phoneNumber,int seniority ) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         setSeniorityRandom();
+        setWeeklySalaryBasis(seniority);
         
     }
     public int getId() {
