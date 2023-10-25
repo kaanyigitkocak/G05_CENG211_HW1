@@ -15,7 +15,7 @@ public class ShopAssistant {
     private double totalSalary; 
     private int commission;
 
-    public ShopAssistant(int id, String name, String surname, String phoneNumber,int seniority ) {
+    public ShopAssistant(int id, String name, String surname, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;

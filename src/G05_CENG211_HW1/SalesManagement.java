@@ -4,7 +4,7 @@ public class SalesManagement {
 	
 
 	public static void main(String[] args) {
-		System.out.println("haha");
+
 		// Create Product objects
 		Product product1 = new Product(1, "Product 1", 100.0);
 		Product product2 = new Product(2, "Product 2", 200.0);
@@ -15,6 +15,7 @@ public class SalesManagement {
 
 		// Create a new Transaction
 		Transaction newTransaction = new Transaction(1, 3,products);
+
 		
 
 

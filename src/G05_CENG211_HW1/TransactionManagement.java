@@ -8,17 +8,21 @@ public class TransactionManagement {
     private int transactionCapacity;
 
 
-    public TransactionManagement(int shopAssistantCount, int shopAssistantCapacity, int transactionCapacity) {
-        this.shopAssistantCount = shopAssistantCount;
+    public TransactionManagement(int shopAssistantCapacity, int transactionCapacity) {
+
         this.shopAssistantCapacity = shopAssistantCapacity;
         this.transactionCapacity = transactionCapacity;
-        this.transactions = new Transaction[shopAssistantCount][shopAssistantCapacity];
+        this.transactions = new Transaction[shopAssistantCapacity][transactionCapacity];
     }
+    
+    
     
     //assistant idlerine gore atama yapilabilir
     public void addTransaction(int shopAssistantIndex, Transaction transaction) {
-        if (shopAssistantIndex < 0 || shopAssistantIndex >= shopAssistantCount) {
+        if (shopAssistantIndex < 0 || shopAssistantIndex > shopAssistantCapacity) {
             System.out.println("Invalid shop assistant index.");
+            System.out.println(shopAssistantCount);
+            
             return;
         }
 
@@ -69,10 +73,7 @@ public class TransactionManagement {
         return transactions[shopAssistantIndex][transactionIndex];
     }
     
-    public double calculateCommission(int shopAssistantIndex) {
-        if (shopAssistantIndex < 0 || shopAssistantIndex >= shopAssistantCount) {
-            return 0.0;
-        }
+    public int calculateCommission(int shopAssistantIndex) {
 
         double totalRevenue = 0.0;
         if (transactions[shopAssistantIndex] != null) {
@@ -82,7 +83,6 @@ public class TransactionManagement {
                 }
             }
         }
-
         int commission;
         if (totalRevenue > 7500) {
             commission = 3; 
@@ -92,8 +92,6 @@ public class TransactionManagement {
 
         return commission;
     }
-
-    //Getter and setter methods for attributes
     
     public Transaction[][] getTransactions() {
         return transactions;
