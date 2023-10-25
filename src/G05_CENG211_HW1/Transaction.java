@@ -116,4 +116,8 @@ public class Transaction {
         sb.append("}");
         return sb.toString();
     }
+
+	public Product[] getProducts() {
+		return products;
+	}
 }

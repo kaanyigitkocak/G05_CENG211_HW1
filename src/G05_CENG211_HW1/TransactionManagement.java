@@ -27,9 +27,10 @@ public class TransactionManagement {
             return;
         }
 
-        if (transactions[shopAssistantIndex] == null) {
-            transactions[shopAssistantIndex] = new Transaction[shopAssistantCapacity];
-        }
+        //hatalı ve gereksiz duruyor birlikte bakalım tekrar transactions 2 boyutlu çünkü
+        //if (transactions[shopAssistantIndex] == null) {
+        //    transactions[shopAssistantIndex] = new Transaction[shopAssistantCapacity];
+        //}
 
         int assistantTransactionCount = getAssistantTransactionCount(shopAssistantIndex);
         if (assistantTransactionCount >= shopAssistantCapacity) {
@@ -92,6 +93,43 @@ public class TransactionManagement {
         return commission;
     }
 
+    //Getter and setter methods for attributes
+    
+    public Transaction[][] getTransactions() {
+        return transactions;
+    }
+
+    public int getShopAssistantCount() {
+        return shopAssistantCount;
+    }
+
+    public int getShopAssistantCapacity() {
+        return shopAssistantCapacity;
+    }
+
+    public int getTransactionCount() {
+        return transactionCount;
+    }
+
+    public int getTransactionCapacity() {
+        return transactionCapacity;
+    }
+
+    public void setShopAssistantCount(int shopAssistantCount) {
+        this.shopAssistantCount = shopAssistantCount;
+    }
+
+    public void setShopAssistantCapacity(int shopAssistantCapacity) {
+        this.shopAssistantCapacity = shopAssistantCapacity;
+    }
+
+    public void setTransactionCount(int transactionCount) {
+        this.transactionCount = transactionCount;
+    }
+
+    public void setTransactionCapacity(int transactionCapacity) {
+        this.transactionCapacity = transactionCapacity;
+    }
 
 }
 

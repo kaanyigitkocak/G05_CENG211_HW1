@@ -22,6 +22,10 @@ public class SalaryManagement {
         return shopAssistants[id];
     }
     
+    public ShopAssistant[] getShopAssistants() {
+    	return shopAssistants;
+    }
+    
     public boolean isFull() {
         return itemCount == capacity;
     }
@@ -46,6 +50,12 @@ public class SalaryManagement {
             System.out.println(assistant.toString()); // Assuming ShopAssistant has a proper toString method
         }
     }
+
+	public double calculateTotalWeeklySalaries() {
+		// boş metod Query classındaki calculateTotalProfit metodu için ekledim
+		//totalsalary ve commission ları burda çağırırız query e direkt bu metodu ekleriz
+		return 0;
+	}
 
 
 }
