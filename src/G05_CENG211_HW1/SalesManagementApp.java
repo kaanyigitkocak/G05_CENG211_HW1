@@ -1,9 +1,7 @@
 package G05_CENG211_HW1;
 
-import java.util.Random;
 
-public class SalesManagement {
-	
+public class SalesManagementApp {
 
 	public static final int TRANSACTION_CAPACITY = 15;
 	
@@ -30,6 +28,6 @@ public class SalesManagement {
 		System.out.println("Total profit is: " + queries.calculateTotalProfit());
 	
 	}
-	
-
 }
+
+
