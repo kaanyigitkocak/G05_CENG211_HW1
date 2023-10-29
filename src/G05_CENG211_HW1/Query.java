@@ -96,9 +96,9 @@ public class Query {
         return totalRevenue;
     }
 
-    public double calculateTotalProfit(SalaryManagement salaryManagement) {
+    public double calculateTotalProfit() {
         double totalRevenue = calculateTotalRevenue();
-        double totalShopAssistantSalaries = salaryManagement.calculateTotalWeeklySalaries();
+        double totalShopAssistantSalaries = salaryManagement.calculateTotalShopAssistantSalaries(transactionManagement);
 
         return totalRevenue - totalShopAssistantSalaries;
     }

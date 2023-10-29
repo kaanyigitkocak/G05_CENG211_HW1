@@ -1,50 +1,51 @@
 package G05_CENG211_HW1;
 
+import java.util.Random;
+
 public class TransactionManagement {
-    private Transaction[][] transactions;
+    private static final int TRANSACTION_CAPACITY = 15;
+    
+	private Transaction[][] transactions;
     private int shopAssistantCount;
-    private int shopAssistantCapacity;
-    private int transactionCount;
     private int transactionCapacity;
 
+    public TransactionManagement(int shopAssistantCapacity) {
 
-    public TransactionManagement(int shopAssistantCapacity, int transactionCapacity) {
-
-        this.shopAssistantCapacity = shopAssistantCapacity;
-        this.transactionCapacity = transactionCapacity;
-        this.transactions = new Transaction[shopAssistantCapacity][transactionCapacity];
+        this.shopAssistantCount = shopAssistantCapacity;
+        this.transactionCapacity = TRANSACTION_CAPACITY;
+        this.transactions = new Transaction[shopAssistantCount][transactionCapacity];
     }
     
+    public void createTransactionsList(Product[] products, ShopAssistant[] shopAssistants) {
+		int transaction_count = 0;
+		for (int i = 0; i < shopAssistants.length; i++) {
+			for(int j = 0; j < TRANSACTION_CAPACITY; j++) {
+				Product[] randomProducts = new Product[3];
+				Random random = new Random();
+				
+				randomProducts[0] = products[random.nextInt(90)];
+				randomProducts[1] = products[random.nextInt(90)];
+				randomProducts[2] = products[random.nextInt(90)];
+				
+				Transaction transaction = new Transaction(transaction_count++, 3, randomProducts);
+				addTransaction(i, transaction);
+			}
+		}
+	}
     
-    
-    //assistant idlerine gore atama yapilabilir
     public void addTransaction(int shopAssistantIndex, Transaction transaction) {
-        if (shopAssistantIndex < 0 || shopAssistantIndex > shopAssistantCapacity) {
+        if (shopAssistantIndex < 0 || shopAssistantIndex > shopAssistantCount) {
             System.out.println("Invalid shop assistant index.");
-            System.out.println(shopAssistantCount);
-            
             return;
         }
-
-        if (transactionCount >= transactionCapacity) {
-            System.out.println("Transaction capacity exceeded.");
-            return;
-        }
-
-        //hatalı ve gereksiz duruyor birlikte bakalım tekrar transactions 2 boyutlu çünkü
-        //if (transactions[shopAssistantIndex] == null) {
-        //    transactions[shopAssistantIndex] = new Transaction[shopAssistantCapacity];
-        //}
 
         int assistantTransactionCount = getAssistantTransactionCount(shopAssistantIndex);
-        if (assistantTransactionCount >= shopAssistantCapacity) {
+        if (assistantTransactionCount >= transactionCapacity) {
             System.out.println("Shop assistant's transaction capacity exceeded.");
             return;
         }
 
         transactions[shopAssistantIndex][assistantTransactionCount] = transaction;
-        transactionCount++;
-
     }
 
     public int getAssistantTransactionCount(int shopAssistantIndex) {
@@ -53,13 +54,15 @@ public class TransactionManagement {
         }
 
         int count = 0;
-        if (transactions[shopAssistantIndex] != null) {
-            for (Transaction transaction : transactions[shopAssistantIndex]) {
-                if (transaction != null) {
-                    count++;
-                }
+        for (Transaction transaction : transactions[shopAssistantIndex]) {
+            if (transaction != null) {
+                count++;
+            }
+            else {
+            	break;
             }
         }
+        
         return count;
     }
 
@@ -73,22 +76,21 @@ public class TransactionManagement {
         return transactions[shopAssistantIndex][transactionIndex];
     }
     
-    public int calculateCommission(int shopAssistantIndex) {
+    public double calculateCommission(int shopAssistantIndex) {
 
         double totalRevenue = 0.0;
-        if (transactions[shopAssistantIndex] != null) {
-            for (Transaction transaction : transactions[shopAssistantIndex]) {
-                if (transaction != null) {
-                    totalRevenue += transaction.getTotalPrice();
-                }
+        for (Transaction transaction : transactions[shopAssistantIndex]) {
+            if (transaction != null) {
+                totalRevenue += transaction.getTotalPrice();
             }
         }
-        int commission;
+        double commission;
         if (totalRevenue > 7500) {
-            commission = 3; 
+            commission = totalRevenue * 0.03; 
+
         } else {
-            commission = 1;
-        }
+            commission = totalRevenue * 0.01;
+        } 
 
         return commission;
     }
@@ -101,28 +103,12 @@ public class TransactionManagement {
         return shopAssistantCount;
     }
 
-    public int getShopAssistantCapacity() {
-        return shopAssistantCapacity;
-    }
-
-    public int getTransactionCount() {
-        return transactionCount;
-    }
-
     public int getTransactionCapacity() {
         return transactionCapacity;
     }
 
     public void setShopAssistantCount(int shopAssistantCount) {
         this.shopAssistantCount = shopAssistantCount;
-    }
-
-    public void setShopAssistantCapacity(int shopAssistantCapacity) {
-        this.shopAssistantCapacity = shopAssistantCapacity;
-    }
-
-    public void setTransactionCount(int transactionCount) {
-        this.transactionCount = transactionCount;
     }
 
     public void setTransactionCapacity(int transactionCapacity) {

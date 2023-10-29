@@ -80,7 +80,7 @@ public class Transaction {
     private double calculateTotalPrice() {
         double total = 0;
         for (Product product : products) {
-            total += product.getPrice();
+            total += (product.getQuantity() * product.getPrice());
         }
         return total;
     }
@@ -100,21 +100,10 @@ public class Transaction {
     
     @Override
     public String toString() { 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Transaction{");
-        sb.append("id=").append(id).append(", ");
-        sb.append("products=[");
-        for (int i = 0; i < products.length; i++) {
-            sb.append(products[i]);
-            if (i < products.length - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("], ");
-        sb.append("totalPrice=").append(totalPrice).append(", ");
-        sb.append("transactionFee=").append(transactionFee);
-        sb.append("}");
-        return sb.toString();
+        return "(Transaction) Id: " + this.id 
+        		+ ", Products: " + this.products[0] + " " + this.products[1] + " " + this.products[2]
+        		+ ", Total Price: " + this.totalPrice 
+        		+ ", Transaction Fee: " + this.transactionFee;
     }
 
 	public Product[] getProducts() {

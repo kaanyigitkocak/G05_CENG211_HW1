@@ -12,8 +12,8 @@ public class ShopAssistant {
     
     //asagidaki iki deger sonradan query icerisinde atanacak
     //commission icin transactionManagement a bak orada bir method var
-    private double totalSalary; 
-    private int commission;
+    private double totalSalary = 0;
+    private double commission = 0;
 
     public ShopAssistant(int id, String name, String surname, String phoneNumber) {
         this.id = id;
@@ -22,8 +22,8 @@ public class ShopAssistant {
         this.phoneNumber = phoneNumber;
         setSeniorityRandom();
         setWeeklySalaryBasis(seniority);
-        
     }
+    
     public int getId() {
         return id;
     }
@@ -40,24 +40,23 @@ public class ShopAssistant {
         return phoneNumber;
     }
 
-
     @Override
     public String toString() {
-        return "ShopAssistant{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return " (ShopAssistant) Name: " + this.name + " " + this.surname 
+        		+ ", Phone Number: " + this.phoneNumber 
+        		+ ", Seniority: " + this.seniority 
+        		+ ", Total Salary: " + this.totalSalary;
     }
 	public int getSeniority() {
 		return seniority;
 	}
+	
 	private void setSeniorityRandom() {
 	    Random rand = new Random();
 	    int randomSeniority = rand.nextInt(15) + 1;
 	    this.seniority = randomSeniority;
 	}
+	
 	public int getWeeklySalaryBasis() {
 		return weeklySalaryBasis;
 	}
@@ -73,18 +72,21 @@ public class ShopAssistant {
         	this.weeklySalaryBasis = 3000; 
         }
 	}
-	public int getCommission() {
+	
+	public double getCommission() {
 		return commission;
 	}
-	public void setCommission(int commission) {
+	
+	public void setCommission(double commission) {
 		this.commission = commission;
 	}
+	
 	public double getTotalSalary() {
 		return totalSalary;
 	}
+	
 	public void setTotalSalary(double totalSalary) {
 		this.totalSalary = totalSalary;
 	}
-
 
 }

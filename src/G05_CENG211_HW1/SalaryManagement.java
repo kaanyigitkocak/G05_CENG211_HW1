@@ -50,11 +50,30 @@ public class SalaryManagement {
             System.out.println(assistant.toString()); // Assuming ShopAssistant has a proper toString method
         }
     }
+    
+    public double calculateShopAssistantsTotalSalary(int shopAssistantIndex) {
+    	double commission = shopAssistants[shopAssistantIndex].getCommission();
+    	int weekly = shopAssistants[shopAssistantIndex].getWeeklySalaryBasis();
+    	double total = commission + (weekly * 4);
+    	return total;
+    			
+    }
+    public void calculateAndSetShopAssistantTotalSalary(TransactionManagement tm) {
+    	for (int i = 0; i < shopAssistants.length; i++) {
+    		shopAssistants[i].setCommission(tm.calculateCommission(i));
+    		double commission = shopAssistants[i].getCommission();
+    		int monthly = shopAssistants[i].getWeeklySalaryBasis() * 4;
+    		double total = monthly + commission;  		
+    		shopAssistants[i].setTotalSalary(total);
+    	}
+    }
 
-	public double calculateTotalWeeklySalaries() {
-		// boş metod Query classındaki calculateTotalProfit metodu için ekledim
-		//totalsalary ve commission ları burda çağırırız query e direkt bu metodu ekleriz
-		return 0;
+	public double calculateTotalShopAssistantSalaries(TransactionManagement tm) {
+		double total = 0;
+		for (int i = 0; i < shopAssistants.length; i++) {
+    		total += shopAssistants[i].getTotalSalary();
+    	}
+		return total;
 	}
 
 
