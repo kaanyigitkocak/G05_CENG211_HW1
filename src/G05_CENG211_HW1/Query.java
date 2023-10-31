@@ -97,9 +97,20 @@ public class Query {
     }
 
     public double calculateTotalProfit() {
+    	
         double totalRevenue = calculateTotalRevenue();
         double totalShopAssistantSalaries = salaryManagement.calculateTotalShopAssistantSalaries(transactionManagement);
 
         return totalRevenue - totalShopAssistantSalaries;
+    }
+    
+    public void printQueries() {
+    	
+    	System.out.println("Highest Total Price Transaction is: " + findHighestTotalPriceTransaction());
+        System.out.println("Most Expensive Product In Lowest Price Transaction is: " + findMostExpensiveProductInLowestPriceTransaction());
+        System.out.println("Lowest Transaction Fee is: " + findLowestTransactionFee());
+        System.out.println("Highest Salary Shop Assistant is: " + findHighestSalaryShopAssistant());
+        System.out.println("Total Revenue is: " + calculateTotalRevenue());
+        System.out.println("Total profit is: " + calculateTotalProfit());
     }
 }

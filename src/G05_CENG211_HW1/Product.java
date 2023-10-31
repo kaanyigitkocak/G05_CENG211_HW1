@@ -19,7 +19,6 @@ public class Product {
         return id;
     }
 
-
     public String getProductName() {
         return productName;
     }
@@ -27,8 +26,7 @@ public class Product {
     public double getPrice() {
         return price;
     }
-
-
+S
     @Override
     public String toString() {
         return "Product{" +

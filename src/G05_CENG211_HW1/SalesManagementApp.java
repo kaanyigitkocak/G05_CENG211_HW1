@@ -20,12 +20,7 @@ public class SalesManagementApp {
 		sm.calculateAndSetShopAssistantTotalSalary(tm);
 		
 		Query queries = new Query(tm, sm);
-		System.out.println("Highest Salary Shop Assistant is: " + queries.findHighestSalaryShopAssistant());
-		System.out.println("Highest Total Price Transaction is: " + queries.findHighestTotalPriceTransaction());
-		System.out.println("Lowest Transaction Fee is: " + queries.findLowestTransactionFee());
-		System.out.println("Most Expensive Product In Lowest Price Transaction is: " + queries.findMostExpensiveProductInLowestPriceTransaction());
-		System.out.println("Total Revenue is: " + queries.calculateTotalRevenue());
-		System.out.println("Total profit is: " + queries.calculateTotalProfit());
+		queries.printQueries();
 	
 	}
 }
