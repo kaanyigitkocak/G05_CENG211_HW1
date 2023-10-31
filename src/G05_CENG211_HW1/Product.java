@@ -1,5 +1,6 @@
 package G05_CENG211_HW1;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Product {
@@ -29,10 +30,11 @@ public class Product {
 
     @Override
     public String toString() {
+        DecimalFormat df = new DecimalFormat("#.00");
         return "Product{" +
                 "id=" + id +
                 ", productName='" + productName + '\'' +
-                ", price=" + price +
+                ", price=" + df.format(price) +
                 '}';
     }
 

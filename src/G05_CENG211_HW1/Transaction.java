@@ -1,5 +1,7 @@
 package G05_CENG211_HW1;
 
+import java.text.DecimalFormat;
+
 public class Transaction {
     private int id;
     private Product[] products;
@@ -100,10 +102,11 @@ public class Transaction {
     
     @Override
     public String toString() { 
+        DecimalFormat df = new DecimalFormat("#.00");
         return "(Transaction) Id: " + this.id 
         		+ ", Products: " + this.products[0] + " " + this.products[1] + " " + this.products[2]
-        		+ ", Total Price: " + this.totalPrice 
-        		+ ", Transaction Fee: " + this.transactionFee;
+                + ", Total Price: " + df.format(this.totalPrice) +
+                 ", Transaction Fee: " + df.format(this.transactionFee);
     }
 
 	public Product[] getProducts() {

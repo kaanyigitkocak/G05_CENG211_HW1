@@ -1,5 +1,9 @@
 package G05_CENG211_HW1;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 public class Query {
 
 	private TransactionManagement transactionManagement;
@@ -93,7 +97,11 @@ public class Query {
             }
         }
 
-        return totalRevenue;
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        otherSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#.00", otherSymbols);
+
+        return Double.parseDouble(df.format(totalRevenue));
     }
 
     public double calculateTotalProfit() {
@@ -101,7 +109,14 @@ public class Query {
         double totalRevenue = calculateTotalRevenue();
         double totalShopAssistantSalaries = salaryManagement.calculateTotalShopAssistantSalaries(transactionManagement);
 
-        return totalRevenue - totalShopAssistantSalaries;
+        double totalProfit = totalRevenue - totalShopAssistantSalaries;
+
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        otherSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#.00", otherSymbols);
+
+        return Double.parseDouble(df.format(totalProfit).replace(",", ""));
+
     }
     
     public void printQueries() {

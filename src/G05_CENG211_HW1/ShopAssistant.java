@@ -1,5 +1,6 @@
 package G05_CENG211_HW1;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class ShopAssistant {
@@ -42,12 +43,15 @@ public class ShopAssistant {
 
     @Override
     public String toString() {
-        return " (ShopAssistant) Name: " + this.name + " " + this.surname 
-        		+ ", Phone Number: " + this.phoneNumber 
-        		+ ", Seniority: " + this.seniority 
-        		+ ", Commission: " + this.commission 
-        		+ ", Total Salary: " + this.totalSalary;
+        DecimalFormat df = new DecimalFormat("#.00");
+
+        return " (ShopAssistant) Name: " + this.name + " " + this.surname +
+                ", Phone Number: " + this.phoneNumber +
+                ", Seniority: " + this.seniority +
+                ", Commission: " + df.format(this.commission) +
+                ", Total Salary: " + df.format(this.totalSalary);
     }
+    
 	public int getSeniority() {
 		return seniority;
 	}
