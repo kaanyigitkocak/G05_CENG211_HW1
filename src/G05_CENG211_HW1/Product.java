@@ -35,7 +35,7 @@ public class Product {
                 "****************\n" +
                 "ID: " + id + "\n" +
                 "Product Name: " + productName + "\n" +
-                "Price: ₺" + df.format(price) + "\n" ;
+                "Price: " + df.format(price) + "TL" + "\n" ;
     }
 
 

@@ -50,8 +50,8 @@ public class ShopAssistant {
                 "Name: " + this.name + " " + this.surname + "\n" +
                 "Phone Number: " + this.phoneNumber + "\n" +
                 "Seniority: " + this.seniority + "\n" +
-                "Commission: " + df.format(this.commission) + "\n" +
-                "Total Salary: " + df.format(this.totalSalary)+ "\n" ;
+                "Commission: " + df.format(this.commission) + "TL" + "\n" +
+                "Total Salary: " + df.format(this.totalSalary)+ "TL" + "\n" ;
     }
     
 	public int getSeniority() {
