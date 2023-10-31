@@ -101,13 +101,16 @@ public class Transaction {
     
     
     @Override
-    public String toString() { 
+    public String toString() {
         DecimalFormat df = new DecimalFormat("#.00");
-        return "(Transaction) Id: " + this.id 
-        		+ ", Products: " + this.products[0] + " " + this.products[1] + " " + this.products[2]
-                + ", Total Price: " + df.format(this.totalPrice) +
-                 ", Transaction Fee: " + df.format(this.transactionFee);
+        return  "Transaction "+ id +" Details\n" +
+                "********************\n" +
+                "Transaction ID: " + this.id + "\n" +
+                "Products: \n" + this.products[0]+ this.products[1]+ this.products[2] + "\n" +
+                "Total Price: " + "₺" + df.format(this.totalPrice) + "\n" +
+                "Transaction Fee: " + "₺" + df.format(this.transactionFee)+ "\n" ;
     }
+
 
 	public Product[] getProducts() {
 		return products;

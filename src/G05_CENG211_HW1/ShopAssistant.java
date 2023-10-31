@@ -45,11 +45,13 @@ public class ShopAssistant {
     public String toString() {
         DecimalFormat df = new DecimalFormat("#.00");
 
-        return " (ShopAssistant) Name: " + this.name + " " + this.surname +
-                ", Phone Number: " + this.phoneNumber +
-                ", Seniority: " + this.seniority +
-                ", Commission: " + df.format(this.commission) +
-                ", Total Salary: " + df.format(this.totalSalary);
+        return  "Shop Assistant "+ id +" Details\n" +
+                "************************\n" +
+                "Name: " + this.name + " " + this.surname + "\n" +
+                "Phone Number: " + this.phoneNumber + "\n" +
+                "Seniority: " + this.seniority + "\n" +
+                "Commission: " + df.format(this.commission) + "\n" +
+                "Total Salary: " + df.format(this.totalSalary)+ "\n" ;
     }
     
 	public int getSeniority() {

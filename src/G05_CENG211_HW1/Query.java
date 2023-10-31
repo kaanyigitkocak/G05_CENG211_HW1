@@ -121,11 +121,11 @@ public class Query {
     
     public void printQueries() {
     	
-    	System.out.println("Highest Total Price Transaction is: " + findHighestTotalPriceTransaction());
-        System.out.println("Most Expensive Product In Lowest Price Transaction is: " + findMostExpensiveProductInLowestPriceTransaction());
-        System.out.println("Lowest Transaction Fee is: " + findLowestTransactionFee());
-        System.out.println("Highest Salary Shop Assistant is: " + findHighestSalaryShopAssistant());
-        System.out.println("Total Revenue is: " + calculateTotalRevenue());
-        System.out.println("Total profit is: " + calculateTotalProfit());
+    	System.out.println("Highest Total Price Transaction: " +"\n"+ findHighestTotalPriceTransaction()+"\n-------------------------------------\n" );
+        System.out.println("Most Expensive Product In Lowest Price Transaction: " +"\n"+ findMostExpensiveProductInLowestPriceTransaction()+"\n-------------------------------------\n" );
+        System.out.println("Lowest Transaction Fee: " +"\n"+ findLowestTransactionFee()+"\n-------------------------------------\n" );
+        System.out.println("Highest Salary Shop Assistant: " +"\n"+ findHighestSalaryShopAssistant()+"\n-------------------------------------\n" );
+        System.out.println("Total Revenue is: " + calculateTotalRevenue()+"\n-------------------------------------\n\n" );
+        System.out.println("Total Profit is: " + calculateTotalProfit());
     }
 }

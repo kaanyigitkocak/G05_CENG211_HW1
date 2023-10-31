@@ -31,12 +31,13 @@ public class Product {
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("#.00");
-        return "Product{" +
-                "id=" + id +
-                ", productName='" + productName + '\'' +
-                ", price=" + df.format(price) +
-                '}';
+        return  "Product " + id + " Details\n" +
+                "****************\n" +
+                "ID: " + id + "\n" +
+                "Product Name: " + productName + "\n" +
+                "Price: ₺" + df.format(price) + "\n" ;
     }
+
 
 	public int getQuantity() {
 		return quantity;
