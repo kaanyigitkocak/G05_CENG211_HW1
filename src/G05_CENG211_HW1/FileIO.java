@@ -7,7 +7,6 @@ public class FileIO {
 	
 	static String productFilePath = "files/products.csv";
 	static String assistantFilePath = "files/shopAssistants.csv";
-	static final int ASSISTANTS_COUNT = 100;
 	
 	public static Product[] readProducts() {
 		int PRODUCTS_COUNT = calculateLineCountInFile(productFilePath);

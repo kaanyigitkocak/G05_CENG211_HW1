@@ -1,9 +1,6 @@
 package G05_CENG211_HW1;
 
-
 public class SalesManagementApp {
-
-	public static final int TRANSACTION_CAPACITY = 15;
 	
 	private static Product[] products;
 	private static ShopAssistant[] shopAssistants;
