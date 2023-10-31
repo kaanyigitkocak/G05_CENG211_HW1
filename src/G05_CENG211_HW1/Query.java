@@ -125,7 +125,7 @@ public class Query {
         System.out.println("Most Expensive Product In Lowest Price Transaction: " +"\n"+ findMostExpensiveProductInLowestPriceTransaction()+"\n-------------------------------------\n" );
         System.out.println("Lowest Transaction Fee: " +"\n"+ findLowestTransactionFee()+"\n-------------------------------------\n" );
         System.out.println("Highest Salary Shop Assistant: " +"\n"+ findHighestSalaryShopAssistant()+"\n-------------------------------------\n" );
-        System.out.println("Total Revenue is: " + calculateTotalRevenue()+"\n-------------------------------------\n\n" );
-        System.out.println("Total Profit is: " + calculateTotalProfit());
+        System.out.println("Total Revenue is: " + calculateTotalRevenue()+"₺"+"\n-------------------------------------\n\n" );
+        System.out.println("Total Profit is: " +  calculateTotalProfit()+"₺");
     }
 }
