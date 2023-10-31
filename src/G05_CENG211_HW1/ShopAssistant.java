@@ -45,6 +45,7 @@ public class ShopAssistant {
         return " (ShopAssistant) Name: " + this.name + " " + this.surname 
         		+ ", Phone Number: " + this.phoneNumber 
         		+ ", Seniority: " + this.seniority 
+        		+ ", Commission: " + this.commission 
         		+ ", Total Salary: " + this.totalSalary;
     }
 	public int getSeniority() {

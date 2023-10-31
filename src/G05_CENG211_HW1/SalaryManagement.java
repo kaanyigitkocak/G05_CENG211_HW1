@@ -47,7 +47,7 @@ public class SalaryManagement {
 
     public void displayShopAssistantItems() {
         for (ShopAssistant assistant : shopAssistants) {
-            System.out.println(assistant.toString()); // Assuming ShopAssistant has a proper toString method
+            System.out.println(assistant.toString());
         }
     }
     
